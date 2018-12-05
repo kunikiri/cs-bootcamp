@@ -2,10 +2,10 @@ namespace: Integrations.demo.aos.sub_flows
 flow:
   name: deploy_wars
   inputs:
-    - tomcat_host: 10.0.46.72
-    - account_service_host: 10.0.46.72
-    - db_host: 10.0.46.72
-    - username: "${get_sp('vm_username')}"
+    - tomcat_host
+    - account_service_host
+    - db_host
+    - username: root
     - password: "${get_sp('vm_password')}"
     - url: "${get_sp('war_repo_root_url')}"
   workflow:
@@ -43,6 +43,9 @@ flow:
 extensions:
   graph:
     steps:
+      deploy_account_service:
+        x: 17.013885498046875
+        y: 224.03125
       initialize_artifact_2:
         x: 160.01388549804688
         y: 231.03125
@@ -50,9 +53,6 @@ extensions:
           624d39a1-6cac-e675-3c92-79b3c89ec5fc:
             targetId: 921ddf16-3f91-9b95-d1a4-1a2fa0911e88
             port: SUCCESS
-      deploy_account_service:
-        x: 17.013885498046875
-        y: 224.03125
     results:
       SUCCESS:
         921ddf16-3f91-9b95-d1a4-1a2fa0911e88:
